@@ -1,8 +1,16 @@
 class DonutMaker {
-  constructor(numDonuts, numAutoClickers, costAutoClicker) {
+  constructor(
+    numDonuts,
+    numAutoClickers,
+    costAutoClicker,
+    numDonutMultiplier,
+    costDonutMultiplier
+  ) {
     this.numDonuts = numDonuts;
     this.numAutoClickers = numAutoClickers;
     this.costAutoClicker = costAutoClicker;
+    this.numDonutMultiplier = numDonutMultiplier;
+    this.costDonutMultiplier = costDonutMultiplier;
   }
 
   getNumDonut() {
@@ -10,28 +18,43 @@ class DonutMaker {
   }
 
   addDonut() {
-    this.numDonuts++;
+    if (this.numDonutMultiplier >= 1)
+      this.numDonuts += +Math.pow(1.2, this.numDonutMultiplier).toFixed(2);
+    else this.numDonuts += 1;
   }
 
   getNumAutoClicker() {
     return this.numAutoClickers;
   }
 
+  addDonutByAutoClicker() {
+    this.numDonuts += this.numAutoClickers;
+  }
+
   addAutoClicker() {
-    if (this.numDonuts >= 100) {
-      this.numAutoClickers++;
-      this.numDonuts -= 100;
-      this.costAutoClicker = Math.round(this.costAutoClicker * 0.1);
+    if (this.numDonuts >= this.costAutoClicker) {
+      if (this.numDonutMultiplier >= 1) {
+        this.numAutoClickers += +Math.pow(1.2, this.numDonutMultiplier).toFixed(
+          2
+        );
+      } else {
+        this.numAutoClickers++;
+      }
+      this.numDonuts -= Math.round(this.costAutoClicker);
+      this.costAutoClicker = Math.round(this.costAutoClicker);
+      this.costAutoClicker *= 1.1;
     }
   }
 
-  costAutoClicker() {
-    while (this.numAutnClickers > 0) {
-      if (this.numDonuts >= this.costAutoClicker) {
-        this.numDonuts - this.costAutoClicker;
-        this.costAutoClicker += this.costAutoClicker * 0.1;
-        this.numAutoClickers++;
-      }
+  getNumDonutMultiplier() {
+    return this.numDonutMultiplier;
+  }
+
+  addDonutMultiplier() {
+    if (this.numDonuts >= this.costDonutMultiplier) {
+      this.numDonuts -= Math.round(this.costDonutMultiplier);
+      this.numDonutMultiplier += 1;
+      this.costDonutMultiplier += this.costDonutMultiplier * 1.1;
     }
   }
 
