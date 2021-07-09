@@ -4,23 +4,28 @@ class DonutMaker {
     numAutoClickers,
     costAutoClicker,
     numDonutMultiplier,
-    costDonutMultiplier
+    costDonutMultiplier,
+    donutsPerClick
   ) {
     this.numDonuts = numDonuts;
     this.numAutoClickers = numAutoClickers;
     this.costAutoClicker = costAutoClicker;
     this.numDonutMultiplier = numDonutMultiplier;
     this.costDonutMultiplier = costDonutMultiplier;
+    this.donutsPerClick = donutsPerClick;
   }
 
   getNumDonut() {
-    return this.numDonuts;
+    return Number(this.numDonuts.toFixed(2));
   }
 
   addDonut() {
-    if (this.numDonutMultiplier >= 1)
-      this.numDonuts += +Math.pow(1.2, this.numDonutMultiplier).toFixed(2);
+    if (this.numDonutMultiplier >= 1) this.numDonuts += this.donutsPerClick;
     else this.numDonuts += 1;
+  }
+
+  getDonutsPerClick() {
+    return this.donutsPerClick;
   }
 
   getNumAutoClicker() {
@@ -55,6 +60,7 @@ class DonutMaker {
       this.numDonuts -= Math.round(this.costDonutMultiplier);
       this.numDonutMultiplier += 1;
       this.costDonutMultiplier += this.costDonutMultiplier * 1.1;
+      this.increaseDonutsPerClick();
     }
   }
 
