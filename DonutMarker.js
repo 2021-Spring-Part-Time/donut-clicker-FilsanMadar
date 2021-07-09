@@ -28,8 +28,16 @@ class DonutMaker {
     return this.donutsPerClick;
   }
 
+  increaseDonutsPerClick() {
+    this.donutsPerClick = +Math.pow(1.2, this.numDonutMultiplier).toFixed(2);
+  }
+
   getNumAutoClicker() {
     return this.numAutoClickers;
+  }
+
+  getCostAutoClicker() {
+    return Number(this.costAutoClicker.toFixed(2));
   }
 
   addDonutByAutoClicker() {
@@ -53,6 +61,10 @@ class DonutMaker {
 
   getNumDonutMultiplier() {
     return this.numDonutMultiplier;
+  }
+
+  getCostDonutMultiplier() {
+    return Number(this.costDonutMultiplier.toFixed(2));
   }
 
   addDonutMultiplier() {

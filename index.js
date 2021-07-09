@@ -5,12 +5,17 @@ const filsanDonutMaker = new DonutMaker(10, 0, 100, 1, 10, 1);
 const donutCounterElement = document.querySelector(".donut-count");
 const donutMultiplierElement = document.querySelector(".donuts-per-click");
 const autoClickerCounterElement = document.querySelector(".autoclicker");
+const costAutoClickerElement = document.querySelector(".autoclicker-cost");
+const costDonutMultiplierElement = document.querySelector(
+  ".donut-multiplier-cost"
+);
 
 const addDonutButton = document.querySelector(".add-donut");
 const addAutoClickerButton = document.querySelector(".add-autoclicker");
 const addDonutMultiplierButton = document.querySelector(
   ".add-donut-multiplier"
 );
+const restartGameButton = document.querySelector(".reset");
 
 const updateDonutCounter = function () {
   donutCounterElement.innerHTML = filsanDonutMaker.getNumDonut();
@@ -25,6 +30,15 @@ const updateAutoClickerCounter = function () {
   autoClickerCounterElement.innerText = filsanDonutMaker.getNumAutoClicker();
 };
 
+const updateCostAutoClicker = function () {
+  costAutoClickerElement.innerText = filsanDonutMaker.getCostAutoClicker();
+};
+
+const updateCostDonutMultiplier = function () {
+  costDonutMultiplierElement.innerText =
+    filsanDonutMaker.getCostDonutMultiplier();
+};
+
 addDonutButton.addEventListener("click", function () {
   filsanDonutMaker.addDonut();
   updateDonutCounter();
@@ -34,14 +48,25 @@ addAutoClickerButton.addEventListener("click", function () {
   filsanDonutMaker.addAutoClicker();
   updateDonutCounter();
   updateAutoClickerCounter();
+  updateCostAutoClicker();
 });
 
 addDonutMultiplierButton.addEventListener("click", function () {
   filsanDonutMaker.addDonutMultiplier();
   updateDonutCounter();
   updateDonutMultiplier();
+  updateCostDonutMultiplier();
+});
+
+resetGameButton.addEventListener("click", function () {
+  const resetGameConfirm = confirm("Are you sure you want to reset?");
+  if (resetGameConfirm) {
+    location.reload();
+  }
 });
 
 updateDonutCounter();
 updateDonutMultiplier();
 updateAutoClickerCounter();
+updateCostAutoClicker();
+updateCostDonutMultiplier();
