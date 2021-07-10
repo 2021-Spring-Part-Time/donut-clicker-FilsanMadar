@@ -15,7 +15,15 @@ const addAutoClickerButton = document.querySelector(".add-autoclicker");
 const addDonutMultiplierButton = document.querySelector(
   ".add-donut-multiplier"
 );
-const restartGameButton = document.querySelector(".reset");
+
+const aboutTheCompanyNav = document.querySelector(".about-company-nav");
+const aboutTheDeveloperNav = document.querySelector(".about-filsan-nav");
+const inspirationNav = document.querySelector(".inspiration-nav");
+const aboutMeModal = document.querySelector(".about-me");
+const aboutCompanyModal = document.querySelector(".about-company");
+const cookieClickerModal = document.querySelector(".cookie-clicker");
+const modal = document.querySelectorAll(".modal");
+const close = document.querySelectorAll(".close");
 
 const updateDonutCounter = function () {
   donutCounterElement.innerHTML = filsanDonutMaker.getNumDonut();
@@ -58,11 +66,32 @@ addDonutMultiplierButton.addEventListener("click", function () {
   updateCostDonutMultiplier();
 });
 
-resetGameButton.addEventListener("click", function () {
-  const resetGameConfirm = confirm("Are you sure you want to reset?");
-  if (resetGameConfirm) {
-    location.reload();
-  }
+aboutTheCompanyNav.addEventListener("click", function () {
+  aboutCompanyModal.style.display = "block";
+});
+
+aboutTheDeveloperNav.addEventListener("click", function () {
+  aboutMeModal.style.display = "block";
+});
+
+inspirationNav.addEventListener("click", function () {
+  cookieClickerModal.style.display = "block";
+});
+
+close.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    modal.forEach((modal) => {
+      modal.style.display = "none";
+    });
+  });
+});
+
+window.addEventListener("click", function (event) {
+  modal.forEach((modal) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  });
 });
 
 updateDonutCounter();

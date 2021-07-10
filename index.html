@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href="style.css" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +10,21 @@
   <body>
     <header>
       <nav>
-        <a class="about-company"
-          >About the Company
+        <div>
+          <a class="about-company-nav">About the Company</a>
+        </div>
+        <div>
+          <a class="inspiration-nav">Inspiration for Donut Maker</a>
+        </div>
+        <div>
+          <a class="about-filsan-nav">About the Developer</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="about-company modal">
+        <div class="modal-conent">
+          <span class="close">&times;</span>
           <h1>
             Fred the Baker Baking Company, is a world renowed baking company
             where people come from all over the world just to eat there donuts.
@@ -19,38 +33,43 @@
             they have created this awesome game so there customers can still
             enjoy their donuts!
           </h1>
-        </a>
-        <a target=" " href="https://orteil.dashnet.org/cookieclicker/"
-          >Inspiration for Donut Maker</a
-        >
-        <a class="about-filsan"
-          >About the Developer
-          <h1>Up and coming developer Filsan helped to create this website!</h1>
-        </a>
-      </nav>
-    </header>
-    <div class="main">
-      <div class="stats">
-        <h2>Number of Donuts:</h2>
-        <h2 class="donut-count">initial amount</h2>
-        <h2>Donuts per Click</h2>
-        <h2 class="donuts-per-click">initial amount</h2>
-        <h2>Number of Auto-Clickers</h2>
-        <h2 class="autoclicker">initial amount</h2>
+        </div>
       </div>
-      <div class="buttons">
-        <button class="add-donut">Add Donut</button>
-        <p><strong>Cost of Auto-Clicker</strong>:</p>
-        <p class="autoclicker-cost">initial price</p>
-        <button class="add-autoclicker">Add Auto-Clicker</button>
-        <p><strong>Cost of Donut Multiplier</strong>:</p>
-        <p class="donut-multiplier-cost">initial price</p>
-        <button class="add-donut-multiplier">Add Donut Multiplier</button>
+      <div class="cookie-clicker modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Cookie Clicker</p>
+        </div>
       </div>
-      <br />
-      <button class="reset">RESTART GAME</button>
-    </div>
-    <script src="./DonutMarker.js"></script>
-    <script src="./index.js"></script>
+      <div class="about-filsan modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Up and coming developer Filsan helped to create this website!</p>
+        </div>
+      </div>
+      <div class="main">
+        <img class="main" src="images/donuts.jpeg" usemap="#donut" />
+        <div class="stats">
+          <h2>Number of Donuts:</h2>
+          <h2 class="donut-count">initial amount</h2>
+          <h2>Donuts per Click</h2>
+          <h2 class="donuts-per-click">initial amount</h2>
+          <h2>Number of Auto-Clickers</h2>
+          <h2 class="autoclicker">initial amount</h2>
+
+          <div class="buttons">
+            <button class="add-donut">Add Donut</button>
+            <p><strong>Cost of Auto-Clicker</strong>:</p>
+            <p class="autoclicker-cost">initial price</p>
+            <button class="add-autoclicker">Add Auto-Clicker</button>
+            <p><strong>Cost of Donut Multiplier</strong>:</p>
+            <p class="donut-multiplier-cost">initial price</p>
+            <button class="add-donut-multiplier">Add Donut Multiplier</button>
+          </div>
+        </div>
+      </div>
+      <script src="./DonutMarker.js"></script>
+      <script src="./index.js"></script>
+    </main>
   </body>
 </html>
