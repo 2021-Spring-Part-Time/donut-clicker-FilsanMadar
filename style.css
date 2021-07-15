@@ -1,0 +1,131 @@
+body {
+  margin: 20;
+  background: rgb(138, 135, 189);
+  font-family: "Varela Round", sans-serif;
+  color: rgb(10, 10, 10);
+  font-size: large;
+  border-image-width: 2rem;
+  background-image: url("images/donuuts.gif");
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.background-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+h1 {
+  font-size: medium;
+}
+header {
+  background-color: #ecd6ed;
+  color: #070707;
+  font-family: cursive;
+}
+footer {
+  background-color: #ecd6ed;
+  color: #070707;
+  font-family: cursive;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+nav a {
+  border-bottom: 3px solid transparent;
+}
+
+nav div {
+  width: 16rem;
+  text-align: center;
+}
+
+nav a:hover {
+  border-bottom: 3px solid #e6a582;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  background-color: #e8c8c8;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.donut-count {
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+.donuts-per-click {
+  text-align: left;
+  margin-top: 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.click-donut-div {
+  text-align: center;
+}
+
+.add-donut {
+  user-select: none;
+  border-radius: 7rem;
+}
+
+.add-donut:active {
+  transform: translateY(5px);
+}
+
+button {
+  padding: 10px 10px;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
